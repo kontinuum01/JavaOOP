@@ -3,6 +3,7 @@ package Lesson1;
 import java.util.ArrayList;
 import java.util.List;
 
+//Класс для работы с генеалогическим древом
 public class FamilyTree {
 
     private final List<Person> people;

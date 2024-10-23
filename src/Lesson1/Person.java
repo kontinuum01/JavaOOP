@@ -3,7 +3,7 @@ package Lesson1;
 import java.util.ArrayList;
 import java.util.List;
 
-//Класс,представляющийчеловека
+//Класс,представляющий человека
 public class Person {
 
     private final String name;
