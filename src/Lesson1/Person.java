@@ -1,11 +1,13 @@
 package Lesson1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 //Класс,представляющий человека
-public class Person {
+public class Person implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private final String name;
     private final int birthYear;
     private Person mother;
