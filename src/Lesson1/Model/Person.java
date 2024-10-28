@@ -1,5 +1,6 @@
-package Lesson1;
+package Lesson1.Model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 //Класс,представляющий человека
 public class Person implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final String name;
     private final int birthYear;

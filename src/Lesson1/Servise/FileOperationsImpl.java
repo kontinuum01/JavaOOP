@@ -1,4 +1,6 @@
-package Lesson1;
+package Lesson1.Servise;
+
+import Lesson1.Model.FamilyTree;
 
 import java.io.*;
 

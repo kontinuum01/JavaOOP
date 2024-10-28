@@ -1,12 +1,16 @@
-package Lesson1;
+package Lesson1.Model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 //Класс для работы с генеалогическим древом
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Person>{
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final List<Person> people;
 
@@ -35,5 +39,20 @@ public class FamilyTree implements Serializable {
 
     public List<Person> getPeople() {
         return people;
+    }
+
+    @Override
+    public Iterator<Person> iterator() {
+        return people.iterator();
+    }
+
+    public void sortByName(){
+        Collections.sort(people,(p1, p2)->
+                p1.getName().compareTo(p2.getName()));
+    }
+
+    public void sortByBirthYear(){
+        Collections.sort(people,(p1,p2)->
+                Integer.compare(p1.getBirthYear(),p2.getBirthYear()));
     }
 }

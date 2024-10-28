@@ -1,4 +1,9 @@
-package Lesson1;
+package Lesson1.Main;
+
+import Lesson1.Model.FamilyTree;
+import Lesson1.Model.Person;
+import Lesson1.Servise.FileOperations;
+import Lesson1.Servise.FileOperationsImpl;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,6 +34,22 @@ public class Main {
         familyTree.addPerson(mary);
         familyTree.addPerson(susan);
         familyTree.addPerson(patrick);
+
+        //Сортируем по имени
+        System.out.println("Сортировка по имени:");
+        familyTree.sortByName();
+        for (Person person : familyTree){
+            System.out.println(person.getName()+"-"+
+                    person.getBirthYear());
+        }
+
+        //Сортируем по дате рождения
+        System.out.println("\nСортировка по дате рождения:");
+        familyTree.sortByBirthYear();
+        for (Person person : familyTree) {
+            System.out.println(person.getName() + "-" +
+                    person.getBirthYear());
+        }
 
         //Создаем объект для работы с файлами
         FileOperations fileOps = new FileOperationsImpl();
