@@ -2,57 +2,61 @@ package Lesson1.Model;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 //Класс для работы с генеалогическим древом
-public class FamilyTree implements Serializable, Iterable<Person>{
+public class FamilyTree<T> implements Serializable, Iterable<T> {
 
     @Serial
     private static final long serialVersionUID = 1L;
-    private final List<Person> people;
+    private final List<T> members;
 
-    public FamilyTree(){
+    public FamilyTree() {
 
-        this.people = new ArrayList<>();
+        this.members = new ArrayList<>();
 
     }
 
-    public void addPerson(Person person){
-        this.people.add(person);
+    public void addMember(T member) {
+        this.members.add(member);
     }
 
-    public List<Person>getChildren(Person parent){
+    public List<Person> getChildren(Person parent) {
         return parent.getChildren();
     }
 
-    public Person findPersonByName(String name){
-        for(Person person : people){
-            if(person.getName().equals(name)){
-                return person;
-            }
-        }
-        return null;
-    }
+//    public Person findPersonByName(String name){
+//        for(Person person : person){
+//            if(person.getName().equals(name)){
+//                return person;
+//            }
+//        }
+//        return null;
+//}
 
-    public List<Person> getPeople() {
-        return people;
+    public List<T> getMembers() {
+        return members;
     }
 
     @Override
-    public Iterator<Person> iterator() {
-        return people.iterator();
+    public Iterator<T> iterator() {
+        return members.iterator();
     }
 
-    public void sortByName(){
-        Collections.sort(people,(p1, p2)->
-                p1.getName().compareTo(p2.getName()));
+    public void sortByName() {
+        members.sort((p1, p2) ->
+                p1.toString().compareTo(p2.toString()));
     }
 
-    public void sortByBirthYear(){
-        Collections.sort(people,(p1,p2)->
-                Integer.compare(p1.getBirthYear(),p2.getBirthYear()));
+    public void sortByBirthYear() {
+        if (members.getFirst() instanceof Person){
+            members.sort((p1, p2) ->
+                    Integer.compare(((Person) p1).getBirthYear(), ((Person)
+                            p2).getBirthYear()));
+        }
     }
 }

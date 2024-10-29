@@ -4,12 +4,12 @@ import Lesson1.Model.FamilyTree;
 
 import java.io.IOException;
 
-public interface FileOperations {
+public interface FileOperations<T> {
 
-    void saveToFile(FamilyTree familyTree, String fileName)
+    void saveToFile(FamilyTree<T> familyTree, String fileName)
             throws IOException;
 
-    FamilyTree loadFromFile(String fileName)
+    FamilyTree<T> loadFromFile(String fileName)
             throws IOException, ClassNotFoundException;
 }
 

@@ -11,7 +11,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        FamilyTree familyTree = new FamilyTree();
+        FamilyTree<Person> familyTree = new FamilyTree<>();
 
         //Создаем людей
         Person john = new Person("John", 1950);
@@ -30,16 +30,16 @@ public class Main {
         mary.addChild(patrick);
 
         //Добавляем людей в древо
-        familyTree.addPerson(john);
-        familyTree.addPerson(mary);
-        familyTree.addPerson(susan);
-        familyTree.addPerson(patrick);
+        familyTree.addMember(john);
+        familyTree.addMember(mary);
+        familyTree.addMember(susan);
+        familyTree.addMember(patrick);
 
         //Сортируем по имени
         System.out.println("Сортировка по имени:");
         familyTree.sortByName();
-        for (Person person : familyTree){
-            System.out.println(person.getName()+"-"+
+        for (Person person : familyTree) {
+            System.out.println(person.getName() + "-" +
                     person.getBirthYear());
         }
 
@@ -52,7 +52,7 @@ public class Main {
         }
 
         //Создаем объект для работы с файлами
-        FileOperations fileOps = new FileOperationsImpl();
+        FileOperations<Person> fileOps = new FileOperationsImpl<>();
 
         //Пример получения всех детей
         List<Person> marysChildren = familyTree.getChildren(mary);
@@ -70,7 +70,7 @@ public class Main {
         }
 
         //Загружаем генеалогическое древо из файла
-        FamilyTree loadedFamilyTree = null;
+        FamilyTree<Person> loadedFamilyTree = null;
 
         try {
             loadedFamilyTree =
@@ -83,13 +83,12 @@ public class Main {
         //Проверяем,что древо загрузилось правильно
         if (loadedFamilyTree != null) {
             for (Person person :
-                    loadedFamilyTree.getPeople()) {
+                    loadedFamilyTree) {
                 System.out.println("Loaded person:" +
                         person.getName() + ",born in" + person.getBirthYear());
             }
 
         }
-
     }
 }
 
