@@ -2,9 +2,12 @@ package Lesson1.Main;
 
 import Lesson1.Model.FamilyTree;
 import Lesson1.Model.Person;
+import Lesson1.Presenter.TreePresenter;
 import Lesson1.Servise.FileOperations;
 import Lesson1.Servise.FileOperationsImpl;
+import Lesson1.View.ConsoleTreeView;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.List;
 
@@ -12,6 +15,10 @@ public class Main {
     public static void main(String[] args) {
 
         FamilyTree<Person> familyTree = new FamilyTree<>();
+        ConsoleTreeView view = new ConsoleTreeView();
+        FileOperationsImpl<Person> fileOperations = new FileOperationsImpl<>();
+        TreePresenter presenter = new TreePresenter(familyTree, view, fileOperations);
+        presenter.handleUserInput();
 
         //Создаем людей
         Person john = new Person("John", 1950);
