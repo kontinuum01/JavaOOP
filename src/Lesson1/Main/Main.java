@@ -7,10 +7,7 @@ import Lesson1.Presenter.TreePresenter;
 import Lesson1.Servise.FileOperations;
 import Lesson1.Servise.FileOperationsImpl;
 import Lesson1.View.ConsoleTreeView;
-
-
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

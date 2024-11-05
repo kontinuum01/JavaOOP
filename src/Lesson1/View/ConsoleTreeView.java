@@ -18,7 +18,7 @@ public class ConsoleTreeView implements TreeView {
 
     @Override
     public void displayMessage(String message) {
-        System.out.println(message);
+        System.out.println(message);;
     }
 
     @Override

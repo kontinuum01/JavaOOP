@@ -11,10 +11,10 @@ import java.io.IOException;
 
 public class TreePresenter {
 
-    private FamilyTree<Person> familyTree;
-    private MessageView messageView;
-    private PersonView personView;
-    private InputView inputView;
+    private  FamilyTree<Person> familyTree;
+    private final MessageView messageView;
+    private final PersonView personView;
+    private final InputView inputView;
     private final FileOperations<Person> fileOperations;
 
     public TreePresenter(FamilyTree<Person> familyTree, MessageView
@@ -47,7 +47,7 @@ public class TreePresenter {
 
     public void sortPersonsByBirthYear() {
         familyTree.sortByBirthYear();
-        messageView.displayMessage("Persons sorted by birthyear  :");
+        messageView.displayMessage("Persons sorted by birth year  :");
         showAllPersons();
     }
 
