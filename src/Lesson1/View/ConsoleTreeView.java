@@ -36,7 +36,7 @@ public class ConsoleTreeView implements TreeView {
 
     @Override
     public void setPresenter(TreePresenter presenter){
-        this.presenter=presenter;
+        this.presenter = presenter;
     }
 
 
